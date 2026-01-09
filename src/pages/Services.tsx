@@ -130,21 +130,20 @@ export function Services() {
           </motion.div>
         ))}
       </div>
-      
-      <div className="mt-20 p-12 rounded-3xl bg-secondary/30 border border-border text-center relative overflow-hidden">
-        <div className="relative z-10">
-            <h3 className="text-3xl font-bold mb-4 text-foreground">Need a custom solution?</h3>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Every production system is unique. We tailor our engagement model to fit your specific technical challenges.
-            </p>
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center justify-center px-8 py-3 bg-primary text-primary-foreground font-bold rounded-full hover:scale-105 transition-transform shadow-lg shadow-primary/20"
-            >
-              Discuss Your Needs
-            </Link>
-        </div>
-      </div>
-    </div>
+     <div className="mt-20 p-12 rounded-3xl bg-white border border-gray-200 text-center relative overflow-hidden shadow-sm">
+  <div className="relative z-10">
+    <h3 className="text-3xl font-bold mb-4 text-black">Need a custom solution?</h3>
+    <p className="text-gray-600 mb-8 max-w-xl mx-auto font-medium">
+      Every production system is unique. We tailor our engagement model to fit your specific technical challenges.
+    </p>
+    <Link 
+      to="/contact" 
+      className="inline-flex items-center justify-center px-8 py-3 bg-[#C09A6F] text-black font-bold rounded-full hover:scale-105 transition-transform shadow-lg"
+    >
+      Discuss Your Needs
+    </Link>
+  </div>
+</div>
+     
   );
 }
