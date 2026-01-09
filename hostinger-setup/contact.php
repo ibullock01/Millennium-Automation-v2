@@ -1,7 +1,7 @@
 <?php
 // contact.php - place this in your site root on Hostinger
 // IMPORTANT: update $to to your receiving email address before using
-$to = "you@your-domain.com"; // change this
+$to = "solutions@millennium-automation.com"; // change this
 $subject_prefix = "Website contact form: ";
 
 function safe($s){ return htmlspecialchars(trim($s), ENT_QUOTES, 'UTF-8'); }
