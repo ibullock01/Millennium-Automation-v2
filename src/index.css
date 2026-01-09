@@ -4,91 +4,99 @@
 
 @layer base {
   :root {
-    /* Background colors - Black theme */
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-
-    /* Card colors */
-    --card: 0 0% 5%;
+    /* Original Design Colors */
+    --background: 0 0% 2%; /* #050505 - Void Black */
+    --foreground: 0 0% 100%; /* #FFFFFF */
+    
+    --card: 0 0% 7%; /* #111111 - Carbon */
     --card-foreground: 0 0% 100%;
-
-    /* Popover colors */
-    --popover: 0 0% 5%;
+    
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 100%;
-
-    /* Primary - Gold/Tan accent color (#c09a6f) */
-    --primary: 30 40% 60%;
+    
+    --primary: 32 40% 59%; /* #C09A6F - Millennium Bronze */
     --primary-foreground: 0 0% 0%;
-
-    /* Secondary colors */
+    
     --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 100%;
-
-    /* Muted colors */
+    
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-
-    /* Accent colors */
+    --muted-foreground: 0 0% 60%; /* #9CA3AF */
+    
     --accent: 0 0% 15%;
     --accent-foreground: 0 0% 100%;
-
-    /* Destructive colors */
+    
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-
-    /* Border and input */
-    --border: 0 0% 20%;
+    
+    --border: 0 0% 20%; /* #333333 */
     --input: 0 0% 20%;
-    --ring: 30 40% 60%;
-
-    /* Radius */
+    --ring: 32 40% 59%;
+    
     --radius: 0.5rem;
-
-    /* Font families */
-    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-serif: Georgia, Cambria, 'Times New Roman', Times, serif;
-    --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    
+    /* Fonts */
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   }
-}
-
-@layer base {
+  
   * {
     @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     font-weight: 400;
   }
   
-  /* Make subtext/paragraph text slightly bolder */
-  p, .text-muted-foreground, .text-gray-300, .text-gray-400 {
+  /* Subtext should be medium weight */
+  p {
     font-weight: 500;
   }
   
-  /* Only apply black text on LIGHT pages (white background) */
-  .light-page h1,
-  .light-page h2,
-  .light-page h3,
-  .light-page h4,
-  .light-page h5,
-  .light-page h6 {
-    color: #000 !important;
-  }
-  
-  .light-page p strong,
-  .light-page p .font-medium,
-  .light-page p .font-bold,
-  .light-page .text-foreground.font-medium,
-  .light-page .font-medium.text-foreground {
-    color: #000 !important;
-  }
-  
+  /* Light page styling - only affects non-dark pages */
   .light-page {
+    background: white !important;
     color: #666;
   }
   
-  .light-page .text-foreground {
+  /* Main page headings should be GOLD on white pages */
+  .light-page > main > div > div > h1,
+  .light-page > main > div > div > h2:first-of-type,
+  .light-page h1.text-primary,
+  .light-page .text-5xl,
+  .light-page .text-7xl {
+    color: #C09A6F !important;
+  }
+  
+  /* Regular headings on white pages should be black */
+  .light-page h2:not(.text-primary),
+  .light-page h3:not(.text-white),
+  .light-page h4:not(.text-white) {
     color: #000 !important;
+  }
+  
+  /* Keep card content white on dark cards */
+  .light-page [class*="group"] h1,
+  .light-page [class*="group"] h2,
+  .light-page [class*="group"] h3,
+  .light-page .text-white {
+    color: white !important;
+  }
+  
+  /* Bold text should be black on white backgrounds */
+  .light-page p strong,
+  .light-page .font-medium:not(.text-white),
+  .light-page .font-bold:not(.text-white) {
+    color: #000 !important;
+  }
+  
+  /* But keep card content white */
+  .light-page [class*="group"] p,
+  .light-page [class*="group"] strong,
+  .light-page [class*="bg-card"] * {
+    color: inherit !important;
   }
 }
