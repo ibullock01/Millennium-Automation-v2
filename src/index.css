@@ -66,33 +66,29 @@
     font-weight: 500;
   }
   
-  /* Ensure headings are always visible on white backgrounds */
-  h1, h2, h3, h4, h5, h6 {
+  /* Only apply black text on LIGHT pages (white background) */
+  .light-page h1,
+  .light-page h2,
+  .light-page h3,
+  .light-page h4,
+  .light-page h5,
+  .light-page h6 {
     color: #000 !important;
   }
   
-  /* Bold text within paragraphs should be black on white pages */
-  p strong, p .font-medium, p .font-bold,
-  .text-foreground.font-medium,
-  .font-medium.text-foreground {
+  .light-page p strong,
+  .light-page p .font-medium,
+  .light-page p .font-bold,
+  .light-page .text-foreground.font-medium,
+  .light-page .font-medium.text-foreground {
     color: #000 !important;
   }
   
-  /* Ensure proper text colors on non-home pages */
-  body:not(.dark-theme) {
+  .light-page {
     color: #666;
   }
   
-  body:not(.dark-theme) h1,
-  body:not(.dark-theme) h2,
-  body:not(.dark-theme) h3,
-  body:not(.dark-theme) h4,
-  body:not(.dark-theme) h5,
-  body:not(.dark-theme) h6 {
-    color: #000 !important;
-  }
-  
-  body:not(.dark-theme) .text-foreground {
+  .light-page .text-foreground {
     color: #000 !important;
   }
 }
