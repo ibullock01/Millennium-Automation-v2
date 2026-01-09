@@ -58,5 +58,11 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-weight: 400;
+  }
+  
+  /* Make subtext/paragraph text slightly bolder */
+  p, .text-muted-foreground, .text-gray-300, .text-gray-400 {
+    font-weight: 500;
   }
 }
