@@ -165,11 +165,13 @@ function Footer() {
 function Layout() {
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const isContact = location.pathname === '/contact';
+  const isDarkPage = isHome || isContact;
 
   return (
     <div className={cn(
       "min-h-screen font-sans selection:bg-primary/10 flex flex-col",
-      isHome ? "bg-black text-white" : "bg-white text-black"
+      isDarkPage ? "bg-black text-white" : "bg-white text-black"
     )}>
       <Navigation />
       <main className={cn("flex-grow", isHome ? "pt-0" : "pt-32")}>
