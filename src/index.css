@@ -65,4 +65,34 @@
   p, .text-muted-foreground, .text-gray-300, .text-gray-400 {
     font-weight: 500;
   }
+  
+  /* Ensure headings are always visible on white backgrounds */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000 !important;
+  }
+  
+  /* Bold text within paragraphs should be black on white pages */
+  p strong, p .font-medium, p .font-bold,
+  .text-foreground.font-medium,
+  .font-medium.text-foreground {
+    color: #000 !important;
+  }
+  
+  /* Ensure proper text colors on non-home pages */
+  body:not(.dark-theme) {
+    color: #666;
+  }
+  
+  body:not(.dark-theme) h1,
+  body:not(.dark-theme) h2,
+  body:not(.dark-theme) h3,
+  body:not(.dark-theme) h4,
+  body:not(.dark-theme) h5,
+  body:not(.dark-theme) h6 {
+    color: #000 !important;
+  }
+  
+  body:not(.dark-theme) .text-foreground {
+    color: #000 !important;
+  }
 }
