@@ -171,7 +171,7 @@ function Layout() {
   return (
     <div className={cn(
       "min-h-screen font-sans selection:bg-primary/10 flex flex-col",
-      isDarkPage ? "bg-black text-white" : "bg-white text-black"
+      isDarkPage ? "bg-black text-white dark-page" : "bg-white text-black light-page"
     )}>
       <Navigation />
       <main className={cn("flex-grow", isHome ? "pt-0" : "pt-32")}>
