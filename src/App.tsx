@@ -14,7 +14,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// Nexify-style Navigation: Floating Pill
+// Nexify-style Navigation: Floating Pill with WHITE background
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -33,7 +33,7 @@ function Navigation() {
 
   return (
     <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-      <nav className="bg-background/80 backdrop-blur-xl border border-border rounded-full px-6 py-3 flex items-center justify-between gap-8 max-w-5xl w-full shadow-lg shadow-primary/5">
+      <nav className="bg-white/90 backdrop-blur-xl border border-gray-200 rounded-full px-6 py-3 flex items-center justify-between gap-8 max-w-5xl w-full shadow-lg">
         <Link to="/" className="flex items-center gap-3 group">
           {/* Logo */}
           <img 
@@ -41,7 +41,7 @@ function Navigation() {
             alt="Millennium Automation" 
             className="h-10 w-auto object-contain"
           />
-          <span className="font-serif font-bold tracking-tight text-foreground text-lg hidden sm:block">MILLENNIUM</span>
+          <span className="font-serif font-bold tracking-tight text-black text-lg hidden sm:block">MILLENNIUM</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -53,8 +53,8 @@ function Navigation() {
               className={cn(
                 "px-4 py-2 text-sm font-medium rounded-full transition-all duration-300",
                 location.pathname === link.path 
-                  ? "bg-primary text-primary-foreground" 
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  ? "bg-[#c09a6f] text-black" 
+                  : "text-gray-600 hover:text-black hover:bg-gray-100"
               )}
             >
               {link.label}
@@ -65,7 +65,7 @@ function Navigation() {
         <div className="hidden md:flex items-center gap-4">
            <Link 
             to="/contact" 
-            className="px-5 py-2 bg-primary text-primary-foreground text-sm font-bold rounded-full hover:scale-105 transition-transform shadow-md shadow-primary/20"
+            className="px-5 py-2 bg-[#c09a6f] text-black text-sm font-bold rounded-full hover:scale-105 transition-transform shadow-md"
           >
             Contact
           </Link>
@@ -74,14 +74,14 @@ function Navigation() {
         {/* Mobile Menu Button */}
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-muted-foreground hover:text-foreground"
+          className="md:hidden p-2 text-gray-600 hover:text-black"
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
         {/* Mobile Nav Dropdown */}
         {isOpen && (
-          <div className="absolute top-full left-0 right-0 mt-4 bg-card border border-border rounded-3xl p-4 flex flex-col gap-2 shadow-2xl mx-4">
+          <div className="absolute top-full left-0 right-0 mt-4 bg-white border border-gray-200 rounded-3xl p-4 flex flex-col gap-2 shadow-2xl mx-4">
             {links.map((link) => (
               <Link 
                 key={link.path} 
@@ -89,8 +89,8 @@ function Navigation() {
                 className={cn(
                   "px-4 py-3 text-sm font-medium rounded-xl transition-colors",
                   location.pathname === link.path 
-                    ? "bg-primary text-primary-foreground" 
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    ? "bg-[#c09a6f] text-black" 
+                    : "text-gray-600 hover:text-black hover:bg-gray-100"
                 )}
               >
                 {link.label}
@@ -98,7 +98,7 @@ function Navigation() {
             ))}
             <Link 
               to="/contact" 
-              className="mt-2 px-4 py-3 bg-primary text-primary-foreground text-sm font-bold rounded-xl text-center"
+              className="mt-2 px-4 py-3 bg-[#c09a6f] text-black text-sm font-bold rounded-xl text-center"
             >
               Contact Us
             </Link>
@@ -111,7 +111,7 @@ function Navigation() {
 
 function Footer() {
   return (
-    <footer className="bg-secondary/30 border-t border-border py-20 mt-20">
+    <footer className="bg-white border-t border-gray-200 py-20 mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
@@ -121,34 +121,34 @@ function Footer() {
                 alt="Millennium Automation" 
                 className="h-8 w-auto object-contain"
               />
-              <span className="font-serif font-bold text-lg text-foreground">MILLENNIUM AUTOMATION</span>
+              <span className="font-serif font-bold text-lg text-black">MILLENNIUM AUTOMATION</span>
             </div>
-            <p className="text-muted-foreground max-w-sm mb-8 leading-relaxed">
+            <p className="text-gray-600 max-w-sm mb-8 leading-relaxed font-medium">
               Stabilizing, scaling, and future-proofing complex manufacturing systems through safe, sustainable engineering leadership and execution excellence.
             </p>
           </div>
           
           <div>
-            <h4 className="font-bold text-foreground mb-6">Services</h4>
-            <ul className="space-y-4 text-sm text-muted-foreground">
-              <li><Link to="/services" className="hover:text-primary transition-colors">Manufacturing Automation</Link></li>
-              <li><Link to="/services" className="hover:text-primary transition-colors">Production Engineering</Link></li>
-              <li><Link to="/services" className="hover:text-primary transition-colors">Team Management</Link></li>
-              <li><Link to="/services" className="hover:text-primary transition-colors">Capital Projects</Link></li>
+            <h4 className="font-bold text-black mb-6">Services</h4>
+            <ul className="space-y-4 text-sm text-gray-600 font-medium">
+              <li><Link to="/services" className="hover:text-[#c09a6f] transition-colors">Manufacturing Automation</Link></li>
+              <li><Link to="/services" className="hover:text-[#c09a6f] transition-colors">Production Engineering</Link></li>
+              <li><Link to="/services" className="hover:text-[#c09a6f] transition-colors">Team Management</Link></li>
+              <li><Link to="/services" className="hover:text-[#c09a6f] transition-colors">Capital Projects</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold text-foreground mb-6">Company</h4>
-            <ul className="space-y-4 text-sm text-muted-foreground">
-              <li><Link to="/about" className="hover:text-primary transition-colors">About</Link></li>
-              <li><Link to="/approach" className="hover:text-primary transition-colors">Approach</Link></li>
-              <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+            <h4 className="font-bold text-black mb-6">Company</h4>
+            <ul className="space-y-4 text-sm text-gray-600 font-medium">
+              <li><Link to="/about" className="hover:text-[#c09a6f] transition-colors">About</Link></li>
+              <li><Link to="/approach" className="hover:text-[#c09a6f] transition-colors">Approach</Link></li>
+              <li><Link to="/contact" className="hover:text-[#c09a6f] transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>
         
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+        <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600 font-medium">
           <p>&copy; {new Date().getFullYear()} Millennium Automation. All rights reserved.</p>
           <div className="flex gap-6">
             <span className="flex items-center gap-2">
@@ -167,7 +167,10 @@ function Layout() {
   const isHome = location.pathname === '/';
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/10 flex flex-col">
+    <div className={cn(
+      "min-h-screen font-sans selection:bg-primary/10 flex flex-col",
+      isHome ? "bg-black text-white" : "bg-white text-black"
+    )}>
       <Navigation />
       <main className={cn("flex-grow", isHome ? "pt-0" : "pt-32")}>
         <Routes>
